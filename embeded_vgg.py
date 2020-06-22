@@ -3,7 +3,6 @@
 """
 Created on Tue Jun  2 00:05:30 2020
 
-@author: shanyang
 """
 ## for building DNN model 
 from keras import Sequential 
