@@ -3,7 +3,6 @@
 """
 Created on Thu Apr 30 00:38:04 2020
 
-@author: shanyang
 """
 from PIL import Image
 import glob
