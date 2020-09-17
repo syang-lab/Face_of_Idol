@@ -92,17 +92,16 @@ class MyModel:
 
 
 def main():
-    label_data = PreprocessData();
-    X, Y = label_data.load_label_data('/Face_of_Idou/imagesout')
+    X, Y = label_data.load_label_data('/Users/shanyang/Downloads/Face_of_Idou/imagesout')
     # save data as check point 
-    label_data.save('/Face_of_Idou/imagesout_XY.npz')
+    label_data.save('/Users/shanyang/Downloads/Face_of_Idou/imagesout_XY.npz')
     
     ## feature embemdding 
     FE = FeatureEmbemding(X,Y);
     FE.generate_features();
     FE.feature_rescale();
     # save as check point 
-    FE.save('/Face_of_Idou/imagesout_feature_label.npz');
+    #FE.save('/Users/shanyang/Downloads/Face_of_Idou/imagesout_feature_label.npz');
     
     features, labels = FE.get_feature_label();
     x_train,x_test,y_train,y_test = train_test_split(features, labels, test_size = 0.2, random_state = 42)
@@ -111,7 +110,11 @@ def main():
     model = MyModel();
     model.build_model();
     hist = model.model.fit(x_train,y_train,validation_split=0.1,shuffle=True,epochs = 300)
-    model.model.predict_class(x_test,y_test)
+    y_pred=model.model.predict_classes(x_test)
+    test_loss, test_acc=model.model.evaluate(x_test,y_test)
+    
+if __name__=="__main__":
+    main()
     
     
     
