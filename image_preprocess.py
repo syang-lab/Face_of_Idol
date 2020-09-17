@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Apr 30 00:38:04 2020
-
+_alignment function reformated: 
+https://github.com/jrosebr1/imutils/blob/master/imutils/face_utils/facealigner.py
 """
 from PIL import Image
 import glob
